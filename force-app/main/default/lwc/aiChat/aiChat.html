@@ -1,0 +1,16 @@
+<template>
+    <lightning-card title="ChatGPT Integration" variant="narrow">
+        <div class="chat-window">
+            <template for:each={chatMessages} for:item="message">
+                <div key={message.id} class={message.type}>
+                    <div class="message-bubble">{message.content}</div>
+                </div>
+            </template>
+        </div>
+        <div class="input-container">
+            <lightning-textarea value={userInput} placeholder="Type your message..."
+                onchange={handleUserInput}></lightning-textarea>
+            <lightning-button label="Send" onclick={sendMessage}></lightning-button>
+        </div>
+    </lightning-card>
+</template>
